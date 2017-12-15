@@ -4,14 +4,18 @@ pg_connect("dbname=cx user=chelle.tuerk password=poodoo host=localhost") or die(
 
 $name_value = $_POST['name'];
 $email_value = $_POST['email'];
+$survey_name = $_POST['survey-name'];
+$survey_description = $_POST['survey-description'];
 
-$query = "INSERT INTO users(name, email) VALUES ('$name_value', '$email_value')";
-$query = pg_query($query);
+$user_query = "INSERT INTO users(name, email) VALUES ('$name_value', '$email_value')";
+$user_query_result = pg_query($user_query);
 
-if($query)
+$survey_query = "INSERT INTO survey(name, description) VALUES ('$survey_name', '$survey_description')";
+$survey_query_result = pg_query($survey_query);
+
+if($user_query_result && $survey_query_result)
   echo "inserted successfully!";
 else{
   echo "There was an error! ".pg_last_error();
 }
-
 ?>

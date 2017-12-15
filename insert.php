@@ -7,7 +7,7 @@ $email_value = $_POST['email'];
 $survey_name = $_POST['survey-name'];
 $survey_description = $_POST['survey-description'];
 
-$user_query = "INSERT INTO users(name, email) VALUES ('$name_value', '$email_value')";
+$user_query = "INSERT INTO users(name, email) VALUES ('$name_value', '$email_value') RETURNING user_id";
 $user_query_result = pg_query($user_query);
 
 $survey_query = "INSERT INTO survey(name, description) VALUES ('$survey_name', '$survey_description')";

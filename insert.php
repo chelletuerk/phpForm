@@ -1,6 +1,6 @@
 <?php
 
-pg_connect("dbname=cx user=chelle.tuerk password=poodoo host=localhost") or die("Couldn't Connect".pg_last_error());
+pg_connect("dbname=cx user=chelle.tuerk password=database host=localhost") or die("Couldn't Connect".pg_last_error());
 
 $name_value = $_POST['name'];
 $email_value = $_POST['email'];
